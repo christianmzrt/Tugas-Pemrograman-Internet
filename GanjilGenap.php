@@ -1,30 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
     <title>Cek Bilangan Ganjil atau Genap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
+        .container {
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            outline: none;
+            transition: border 0.3s;
+        }
+        input[type="number"]:focus {
+            border: 1px solid #3498db;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #3498db;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="submit"]:hover {
+            background: #2980b9;
+        }
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .even {
+            background: #dff9fb;
+            color: #130f40;
+        }
+        .odd {
+            background: #f6e58d;
+            color: #4834d4;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Cek Bilangan Ganjil atau Genap</h2>
+<div class="container">
+    <h2>Cek Bilangan Ganjil atau Genap</h2>
 
-<form method="post" action="">
-    <label>Masukkan Angka:</label>
-    <input type="number" name="angka" required>
-    <br><br>
-    <input type="submit" name="cek" value="Cek">
-</form>
+    <form method="post" action="">
+        <label>Masukkan Angka:</label>
+        <input type="number" name="angka" required>
+        <input type="submit" name="cek" value="Cek">
+    </form>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $angka = $_POST['angka'];
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $angka = $_POST['angka'];
 
-    if ($angka % 2 == 0) {
-        echo "<h3>Bilangan $angka adalah GENAP</h3>";
-    } else {
-        echo "<h3>Bilangan $angka adalah GANJIL</h3>";
+        if ($angka % 2 == 0) {
+            echo "<div class='result even'>Bilangan <b>$angka</b> adalah <b>GENAP</b></div>";
+        } else {
+            echo "<div class='result odd'>Bilangan <b>$angka</b> adalah <b>GANJIL</b></div>";
+        }
     }
-}
-?>
+    ?>
+</div>
 
 </body>
 </html>
