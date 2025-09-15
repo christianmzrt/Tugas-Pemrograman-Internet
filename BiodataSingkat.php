@@ -1,49 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
     <title>Form Biodata Singkat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
+        .container {
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #34495e;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            outline: none;
+            transition: border 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        textarea:focus {
+            border: 1px solid #3498db;
+        }
+        .radio-group {
+            margin-bottom: 15px;
+        }
+        .radio-group label {
+            font-weight: normal;
+            margin-right: 15px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #3498db;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="submit"]:hover {
+            background: #2980b9;
+        }
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #2c3e50;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Form Biodata Singkat</h2>
+<div class="container">
+    <h2>Form Biodata Singkat</h2>
 
-<form method="post" action="">
-    <label>Nama:</label><br>
-    <input type="text" name="nama" required>
-    <br><br>
+    <form method="post" action="">
+        <label>Nama:</label>
+        <input type="text" name="nama" required>
 
-    <label>Umur:</label><br>
-    <input type="number" name="umur" min="1" required>
-    <br><br>
+        <label>Umur:</label>
+        <input type="number" name="umur" min="1" required>
 
-    <label>Jenis Kelamin:</label><br>
-    <input type="radio" name="jk" value="Laki-laki" required> Laki-laki
-    <input type="radio" name="jk" value="Perempuan" required> Perempuan
-    <br><br>
+        <label>Jenis Kelamin:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="jk" value="Laki-laki" required> Laki-laki</label>
+            <label><input type="radio" name="jk" value="Perempuan" required> Perempuan</label>
+        </div>
 
-    <label>Alamat:</label><br>
-    <textarea name="alamat" rows="3" cols="30" required></textarea>
-    <br><br>
+        <label>Alamat:</label>
+        <textarea name="alamat" rows="3" required></textarea>
 
-    <input type="submit" name="submit" value="Kirim">
-</form>
+        <input type="submit" name="submit" value="Kirim">
+    </form>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nama = htmlspecialchars($_POST['nama']);
-    $umur = $_POST['umur'];
-    $jk = $_POST['jk'];
-    $alamat = htmlspecialchars($_POST['alamat']);
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nama = htmlspecialchars($_POST['nama']);
+        $umur = $_POST['umur'];
+        $jk = $_POST['jk'];
+        $alamat = htmlspecialchars($_POST['alamat']);
 
-    echo "<h3>Hasil Biodata:</h3>";
-    echo "<p>";
-    echo "Perkenalkan, nama saya <b>$nama</b>.<br>";
-    echo "Saat ini saya berusia <b>$umur tahun</b>.<br>";
-    echo "Saya adalah seorang <b>$jk</b>, dan sekarang saya tinggal di <b>$alamat</b>.<br>";
-    echo "Senang bisa berbagi sedikit tentang diri saya!";
-    echo "</p>";
-}
-?>
+        echo "<div class='result'>";
+        echo "<h3>Hasil Biodata:</h3>";
+        echo "Perkenalkan, nama saya <b>$nama</b>.<br>";
+        echo "Saat ini saya berusia <b>$umur tahun</b>.<br>";
+        echo "Saya adalah seorang <b>$jk</b>, dan sekarang saya tinggal di <b>$alamat</b>.<br>";
+        echo "Senang bisa berbagi sedikit tentang diri saya!";
+        echo "</div>";
+    }
+    ?>
+</div>
 
 </body>
 </html>
