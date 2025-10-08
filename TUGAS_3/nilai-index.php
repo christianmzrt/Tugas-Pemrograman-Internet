@@ -61,7 +61,7 @@ $mhs = $conn->query("SELECT * FROM mahasiswa WHERE id = $mahasiswa_id")->fetch_a
               <td>{$row['nilai_huruf']}</td>
               <td>{$row['nilai_angka']}</td>
               <td class='aksi text-right'>
-                <a href='nilai-edit.php?id={$row['id']}&mahasiswa_id={$mahasiswa_id}' class='aksi-link edit'>Edit</a>
+                <a href='nilai_edit.php?id={$row['id']}&mahasiswa_id={$mahasiswa_id}' class='aksi-link edit'>Edit</a>
                 <a href='javascript:void(0)' onclick='confirmDelete(\"nilai-hapus.php?id={$row['id']}&mahasiswa_id={$mahasiswa_id}\")' class='aksi-link delete'>Hapus</a>
               </td>
             </tr>";

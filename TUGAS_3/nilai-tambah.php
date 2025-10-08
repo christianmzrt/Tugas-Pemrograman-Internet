@@ -102,9 +102,9 @@ $mhs = $conn->query("SELECT * FROM mahasiswa WHERE id = $mahasiswa_id")->fetch_a
       <script>
       Swal.fire({
         icon: 'success',
-        title: 'Nilai Berhasil Disimpan!',
-        showConfirmButton: false,
-        timer: 1800
+        title: 'Berhasil!',
+        text: 'Nilai mahasiswa berhasil disimpan.',
+        confirmButtonColor: '#6c63ff'
       }).then(() => {
         window.location.href = 'nilai-index.php?mahasiswa_id=$mahasiswa_id';
       });
@@ -127,4 +127,3 @@ $mhs = $conn->query("SELECT * FROM mahasiswa WHERE id = $mahasiswa_id")->fetch_a
 
 </body>
 </html>
-

@@ -29,12 +29,12 @@ $success = $stmt->execute();
   <div class="form-container">
     <?php if ($success): ?>
       <div class="alert success">
-        Data nilai berhasil dihapus!
+        ✅ Data nilai berhasil dihapus!
       </div>
       <a href="nilai-index.php?mahasiswa_id=<?= $mahasiswa_id; ?>" class="btn-primary">← Kembali</a>
     <?php else: ?>
       <div class="alert error">
-        Terjadi kesalahan: <?= htmlspecialchars($conn->error); ?>
+        ❌ Terjadi kesalahan: <?= htmlspecialchars($conn->error); ?>
       </div>
       <a href="nilai-index.php?mahasiswa_id=<?= $mahasiswa_id; ?>" class="btn-secondary">← Kembali</a>
     <?php endif; ?>
